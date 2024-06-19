@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Add Musician{% endblock %}
+
+{% block content %}
+    <h1>Add a New Musician</h1>
+        <form action="{{ url_for('addrec') }}" method="POST">
+            <label for="musician_name">Musician Name:</label>
+            <input type="text" id="musician_name" name="musician_name" required>
+            
+            <label for="guitar_name">Guitar Name:</label>
+            <input type="text" id="guitar_name" name="guitar_name" required>
+            
+            <label for="song_title">Song Title:</label>
+            <input type="text" id="song_title" name="song_title" required>
+
+            <label for="image_url">Image URL:</label>
+            <input type="text" id="image_url" name="image_url">
+
+            <input type="submit" value="Add Musician">
+        </form>
+        <a href="{{ url_for('listrec') }}" class="btn">View All Musicians</a>
+
+    {% with messages = get_flashed_messages()%}
+        {% if messages%}
+            {% for message in messages%}
+                <p>{{message}}</p>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+    
+{% endblock %}

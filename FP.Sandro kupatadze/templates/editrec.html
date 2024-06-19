@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Info{% endblock %}
+
+{% block content %}
+<main>
+    <h1>Edit Info</h1>
+    <form action="{{ url_for('editrec', id=record[0]) }}" method="post">
+        <label for="musician_name">Musician Name:</label>
+        <input type="text" id="musician_name" name="musician_name" value="{{ record[1] }}" required>
+        
+        <label for="guitar_name">Guitar Name:</label>
+        <input type="text" id="guitar_name" name="guitar_name" value="{{ record[2] }}" required>
+        
+        <label for="song_title">Song Title:</label>
+        <input type="text" id="song_title" name="song_title" value="{{ record[3] }}" required>
+
+        <label for="image_url">Image URL:</label>
+        <input type="text" id="image_url" name="image_url" value="{{ record[4] }}" required>
+
+        <input type="submit" value="Update Record">
+    </form>
+</main>
+{% endblock %}

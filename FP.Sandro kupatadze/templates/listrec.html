@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}List of Musicians{% endblock %}
+
+{% block content %}
+<h1>Musicians</h1>
+<div class="cards-container">
+    {% for record in records %}
+    <div class="card">
+        <img src="{{ record[4] }}" class="card-img-top" alt="Musician Image">
+        <div class="card-body">
+            <h5 class="card-title">{{ record[1] }}</h5>
+            <p class="card-text">Guitar: {{ record[2] }}</p>
+            <p class="card-text">Song: {{ record[3] }}</p>
+            {% if 'username' in session %}
+                <a href="{{ url_for('editrec', id=record[0]) }}" class="btn">Edit</a>
+                <a href="{{ url_for('deleterec', id=record[0]) }}" class="btn delete-btn" onclick="return confirm('Are you sure you want to delete this record?');">Delete</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+    {% with messages = get_flashed_messages()%}
+        {% if messages%}
+            {% for message in messages%}
+                <p>{{message}}</p>
+            {%endfor%}
+        {%endif%}
+    {%endwith%}
+{% endblock %}

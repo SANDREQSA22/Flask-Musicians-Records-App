@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    {% if 'username' in session %}
+        <h1>Welcome, {{ session['username'] }}!</h1>
+    {% endif %}
+    <div class="container">
+        <img src="./static/images/slash.jpg" alt="">
+        <img src="./static/images/ph1.jpg" alt="">
+        <img src="./static/images/ph2.jpg" alt="">
+        <img src="./static/images/ph3.jpg" alt="">
+        <img src="./static/images/ph4.jpg" alt="">
+        <img src="./static/images/ph5.jpg" alt="">
+        <img src="./static/images/ph6.jpg" alt="">
+        <img src="./static/images/ph7.jpg" alt="">
+        <img src="./static/images/ph8.jpg" alt="">
+        <img src="./static/images/ph9.jpg" alt="">
+        <img src="./static/images/ph10.jpg" alt="">
+        <img src="./static/images/ph11.jpg" alt="">
+        <img src="./static/images/ph12.jpg" alt="">
+        <img src="./static/images/ph13.jpg" alt="">
+        <img src="./static/images/ph14.jpg" alt="">
+    </div>
+{% endblock %}
